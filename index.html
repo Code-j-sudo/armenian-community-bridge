@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Armenian Community Bridge</title>
+  <meta
+    name="description"
+    content="Armenian Community Bridge is a youth-led community initiative helping Armenian families in Orange County and Glendale access resources, volunteers, tutoring, translation help, and cultural support."
+  />
+
+  <style>
+    :root {
+      --navy: #111827;
+      --dark: #0f172a;
+      --red: #9f1d2f;
+      --red-dark: #7f1525;
+      --cream: #f8f4ee;
+      --white: #ffffff;
+      --gray: #64748b;
+      --light-gray: #e5e7eb;
+      --gold: #c49a45;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 244, 238, 0.95);
+      border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--red);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      opacity: 0.85;
+    }
+
+    .nav-links a:hover {
+      color: var(--red);
+      opacity: 1;
+    }
+
+    .nav-button {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: 10px 18px;
+      border-radius: 999px;
+      opacity: 1 !important;
+    }
+
+    .nav-button:hover {
+      background: var(--red-dark);
+    }
+
+    .hero {
+      min-height: 86vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(15, 23, 42, 0.74), rgba(15, 23, 42, 0.74)),
+        url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      text-align: left;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 0.95;
+      margin-bottom: 22px;
+      letter-spacing: -0.05em;
+    }
+
+    .hero h2 {
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1.2;
+      margin-bottom: 22px;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    .hero p {
+      max-width: 680px;
+      font-size: 19px;
+      color: #e2e8f0;
+      margin-bottom: 34px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .button-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      color: var(--white);
+    }
+
+    .button-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 86px 0;
+    }
+
+    .section-label {
+      color: var(--red);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+      letter-spacing: -0.035em;
+      color: var(--dark);
+    }
+
+    .section-text {
+      color: #475569;
+      font-size: 18px;
+      max-width: 780px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 42px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 16px 50px rgba(15, 23, 42, 0.06);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: var(--dark);
+    }
+
+    .card p {
+      color: #475569;
+    }
+
+    .program-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fee2e2;
+      color: var(--red);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .white-section {
+      background: var(--white);
+    }
+
+    .dark-section {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .dark-section .section-title {
+      color: var(--white);
+    }
+
+    .dark-section .section-text,
+    .dark-section p,
+    .dark-section li {
+      color: #cbd5e1;
+    }
+
+    .form-box {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: 0 16px 50px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(17, 24, 39, 0.08);
+    }
+
+    .form-box label {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--dark);
+      font-size: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      font: inherit;
+      margin-bottom: 16px;
+      background: #ffffff;
+      color: var(--dark);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--red);
+      box-shadow: 0 0 0 4px #fee2e2;
+    }
+
+    .form-note {
+      background: #fffbeb;
+      color: #92400e;
+      padding: 15px;
+      border-radius: 16px;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .submit-button {
+      width: 100%;
+      border: none;
+      background: var(--red);
+      color: var(--white);
+      padding: 15px 20px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background: var(--red-dark);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 42px;
+    }
+
+    .impact-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 30px 22px;
+      text-align: center;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      box-shadow: 0 16px 50px rgba(15, 23, 42, 0.06);
+    }
+
+    .impact-number {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .impact-label {
+      color: #475569;
+      font-weight: 700;
+    }
+
+    .founder-box {
+      background: linear-gradient(135deg, var(--red), #4c0519);
+      color: var(--white);
+      border-radius: 30px;
+      padding: 44px;
+      margin-top: 36px;
+    }
+
+    .founder-box p {
+      font-size: 19px;
+      color: #f8fafc;
+      margin-bottom: 20px;
+    }
+
+    .founder-name {
+      font-weight: 900;
+      color: #ffffff;
+    }
+
+    .contact-box {
+      text-align: center;
+      background: var(--white);
+      border-radius: 30px;
+      padding: 54px 30px;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      box-shadow: 0 16px 50px rgba(15, 23, 42, 0.06);
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    footer {
+      background: #0b1120;
+      color: #cbd5e1;
+      padding: 38px 0;
+      text-align: center;
+    }
+
+    footer strong {
+      color: var(--white);
+    }
+
+    .mobile-menu-note {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-note {
+        display: block;
+        font-size: 14px;
+        color: var(--gray);
+        font-weight: 700;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid,
+      .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .card-grid,
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      .hero-content {
+        padding: 72px 0;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      .button {
+        text-align: center;
+      }
+
+      .founder-box {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#home" aria-label="Armenian Community Bridge home">
+          <span class="logo-mark">ACB</span>
+          <span>Armenian Community Bridge</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#programs">Programs</a>
+          <a href="#help">Get Help</a>
+          <a href="#volunteer">Volunteer</a>
+          <a href="#impact">Impact</a>
+          <a href="#contact" class="nav-button">Contact</a>
+        </div>
+
+        <div class="mobile-menu-note">Menu</div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Serving Orange County and Glendale</span>
+          <h1>You’re Not Alone.</h1>
+          <h2>Helping Armenian communities thrive in Orange County and Glendale.</h2>
+          <p>
+            A youth-led nonprofit initiative connecting Armenian families with
+            resources, volunteers, cultural programs, tutoring, translation help,
+            and community support.
+          </p>
+
+          <div class="button-row">
+            <a class="button button-primary" href="#help">Get Help</a>
+            <a class="button button-secondary" href="#volunteer">Volunteer</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container split">
+        <div>
+          <p class="section-label">Why We Exist</p>
+          <h2 class="section-title">
+            Making support easier to find for Armenian families.
+          </h2>
+        </div>
+
+        <div>
+          <p class="section-text">
+            Armenian Community Bridge exists because many Armenian families,
+            students, seniors, and newcomers in Orange County and Glendale need
+            easier access to trusted support, resources, and connection.
+          </p>
+          <br />
+          <p class="section-text">
+            Our community is strong, but help is often spread across different
+            churches, schools, organizations, social circles, and individual
+            volunteers. For families who are new to the area, students looking
+            for guidance, or seniors who need extra support, it can be difficult
+            to know where to start.
+          </p>
+          <br />
+          <p class="section-text">
+            We created Armenian Community Bridge to make that first step easier.
+            Our goal is to connect Armenian community members with educational
+            support, volunteer assistance, cultural programs, translation help,
+            and local resources.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="white-section" id="programs">
+      <div class="container">
+        <p class="section-label">What We Do</p>
+        <h2 class="section-title">
+          Practical programs for students, families, seniors, and newcomers.
+        </h2>
+        <p class="section-text">
+          Our programs are designed to turn community care into organized action.
+        </p>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="program-number">1</div>
+            <h3>Student Support</h3>
+            <p>
+              Tutoring, mentorship, school resources, and college-readiness
+              support for Armenian students.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="program-number">2</div>
+            <h3>Family Resources</h3>
+            <p>
+              Helping families find local services, school information,
+              community programs, and trusted referrals.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="program-number">3</div>
+            <h3>Senior Outreach</h3>
+            <p>
+              Volunteer check-ins, technology help, and connection for Armenian
+              seniors in the community.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="program-number">4</div>
+            <h3>Cultural Connection</h3>
+            <p>
+              Events and service projects that strengthen Armenian identity,
+              history, language, and belonging.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="help">
+      <div class="container split">
+        <div>
+          <p class="section-label">Get Help</p>
+          <h2 class="section-title">Request community support.</h2>
+          <p class="section-text">
+            Fill out this form if you or someone you know needs help finding
+            tutoring, translation assistance, local resources, senior support,
+            or newcomer guidance.
+          </p>
+          <br />
+          <p class="section-text">
+            Once we receive your request, a volunteer will review it and respond
+            as soon as possible.
+          </p>
+        </div>
+
+        <div class="form-box">
+          <div class="form-note">
+            Armenian Community Bridge is a volunteer community initiative, not
+            an emergency service. For emergencies, call 911.
+          </div>
+
+          <!--
+            This form needs a backend to actually submit.
+            Easy options:
+            1. Replace action with a Formspree endpoint.
+            2. Replace action with a Google Forms link.
+            3. Use Netlify Forms if hosting on Netlify.
+          -->
+          <form action="#" method="POST">
+            <label for="help-name">Full Name</label>
+            <input id="help-name" name="name" type="text" placeholder="Your name" />
+
+            <label for="help-contact">Email or Phone</label>
+            <input id="help-contact" name="contact" type="text" placeholder="Email or phone number" />
+
+            <label for="help-city">City</label>
+            <input id="help-city" name="city" type="text" placeholder="Orange County, Glendale, etc." />
+
+            <label for="help-type">Type of Help Needed</label>
+            <select id="help-type" name="type">
+              <option value="">Select one</option>
+              <option>Tutoring</option>
+              <option>Translation Assistance</option>
+              <option>Senior Support</option>
+              <option>Newcomer Resources</option>
+              <option>Family Resources</option>
+              <option>Other</option>
+            </select>
+
+            <label for="help-language">Preferred Language</label>
+            <select id="help-language" name="language">
+              <option value="">Select one</option>
+              <option>English</option>
+              <option>Armenian</option>
+              <option>Russian</option>
+              <option>Spanish</option>
+              <option>Other</option>
+            </select>
+
+            <label for="help-message">Message</label>
+            <textarea id="help-message" name="message" placeholder="Briefly describe what kind of support is needed."></textarea>
+
+            <button class="submit-button" type="submit">Submit Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="volunteer">
+      <div class="container split">
+        <div>
+          <p class="section-label">Volunteer</p>
+          <h2 class="section-title">Join a student-led service network.</h2>
+          <p class="section-text">
+            Volunteers help make Armenian Community Bridge possible. Students,
+            parents, professionals, and community members can support families
+            through tutoring, translation, outreach, events, and resource research.
+          </p>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12);">
+          <h3 style="color: white;">Volunteer roles</h3>
+          <ul style="padding-left: 20px; margin-top: 16px;">
+            <li>Tutor Armenian students in school subjects</li>
+            <li>Help families navigate local resources</li>
+            <li>Assist seniors with technology or check-ins</li>
+            <li>Translate basic community information</li>
+            <li>Support cultural and service events</li>
+            <li>Research verified resources for the community</li>
+          </ul>
+
+          <br />
+
+          <a class="button button-primary" href="#contact">Become a Volunteer</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact">
+      <div class="container">
+        <p class="section-label">Impact Goals</p>
+        <h2 class="section-title">Measuring service, not just intentions.</h2>
+        <p class="section-text">
+          As Armenian Community Bridge grows, we will track clear community
+          impact metrics so our work remains organized, accountable, and useful.
+        </p>
+
+        <div class="impact-grid">
+          <div class="impact-card">
+            <div class="impact-number">50</div>
+            <div class="impact-label">Families Supported</div>
+          </div>
+
+          <div class="impact-card">
+            <div class="impact-number">25</div>
+            <div class="impact-label">Student Volunteers</div>
+          </div>
+
+          <div class="impact-card">
+            <div class="impact-number">100</div>
+            <div class="impact-label">Verified Resources</div>
+          </div>
+
+          <div class="impact-card">
+            <div class="impact-number">3</div>
+            <div class="impact-label">Service Events</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="white-section" id="founder">
+      <div class="container">
+        <p class="section-label">Founder’s Note</p>
+        <h2 class="section-title">Built to connect, serve, and strengthen community.</h2>
+
+        <div class="founder-box">
+          <p>
+            I started Armenian Community Bridge to create a more organized way
+            for Armenian families in Orange County and Glendale to find support,
+            volunteers, and community resources.
+          </p>
+          <p>
+            As a student, I wanted to build something that connects generations,
+            strengthens Armenian identity, and turns community service into
+            practical action. This project is still growing, but its purpose is
+            simple: to help Armenian families feel supported, seen, and connected.
+          </p>
+          <div class="founder-name">— Aram Grigoryan, Founder</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <p class="section-label">Contact</p>
+          <h2 class="section-title">Get involved with Armenian Community Bridge.</h2>
+          <p class="section-text" style="margin: 0 auto;">
+            We welcome conversations with schools, Armenian organizations,
+            churches, student groups, local leaders, volunteers, and families
+            in Orange County and Glendale.
+          </p>
+
+          <div class="contact-links">
+            <a class="button button-primary" href="mailto:armeniancommunitybridge@gmail.com">
+              Email Us
+            </a>
+            <a class="button" style="background: var(--dark); color: white;" href="#help">
+              Request Help
+            </a>
+            <a class="button" style="border: 1px solid var(--light-gray);" href="#volunteer">
+              Volunteer
+            </a>
+          </div>
+
+          <p style="margin-top: 24px; color: #64748b;">
+            Email: armeniancommunitybridge@gmail.com
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>Armenian Community Bridge</strong></p>
+      <p>Serving Orange County and Glendale, California</p>
+      <p style="margin-top: 10px;">
+        © 2026 Armenian Community Bridge. A youth-led community service initiative.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
